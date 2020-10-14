@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_number: 1
+  match_date: 2020-10-14
+
+two:
+  match_number: 1
+  match_date: 2020-10-14
