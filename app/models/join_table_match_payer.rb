@@ -1,2 +1,0 @@
-class JoinTableMatchPayer < ApplicationRecord
-end
