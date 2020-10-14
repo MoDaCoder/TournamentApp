@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
     before_action :find_match, only:[:show, :edit, :update, :destroy]
     #show /show all page
     def index
-        @match = Match.all
+        @matches = Match.all
     end
 
     #Get /read action for a single object
