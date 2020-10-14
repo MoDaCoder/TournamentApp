@@ -1,0 +1,14 @@
+<h1>All Matches</h1>
+
+<ul>
+    <% @matches.each do |match| %>
+    <li> <%= link_to match.to_s, match_path(match) %> </li>
+<%end%>
+</ul>
+
+<br>
+<%= link_to "Create New Match", new_match_path %>
+</br>
+<br>
+<%= link_to "Welcome Page", user_session_path %>
+</br>

@@ -1,0 +1,7 @@
+<h1>Create New Match & Players</h1>
+<% if @errors && !@errors.empty?%>
+    <% @errors.each do |e| %>
+        <p><%= e %></p>
+    <%end%>
+<%end%>
+<%= render 'form', match:@match %>

@@ -1,4 +1,4 @@
-class Player < ApplicationRecord
+class Player < ActiveRecord::Base
     has_many :match_player
     has_many :matches, through: :matches_players
 

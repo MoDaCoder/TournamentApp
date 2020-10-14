@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_153120) do
   create_table "matches", force: :cascade do |t|
     t.integer "match_number"
     t.date "match_date"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

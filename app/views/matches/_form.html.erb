@@ -1,0 +1,24 @@
+<h2>Match:</h2>
+<%= form_for match do |f| %>
+<%= f.label :match_number %>
+<%= f.number_field :match_number %>
+<%= f.label :match_date%>
+<%= f.date_field :match_date %>
+<%= f.submit %>
+
+
+<%= f.fields_for :players do |players| %>
+<p>
+    <h2>Players:</h2>
+    <%= players.label :name %>
+    <%= players.text_field :name %>
+    <%= players.label :player_number %>
+    <%= players.number_field :player_number%>
+</p>
+<%end%>
+<%= f.submit %>
+<%end%>
+
+<br>
+<%= link_to "Go To Matches", matches_path %>
+</br>
