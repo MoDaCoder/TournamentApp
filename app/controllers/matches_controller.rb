@@ -24,7 +24,7 @@ class MatchesController < ApplicationController
     #Get /render new form
     def new
         @match = Match.new
-        4.times{@match.players.build}
+        # 4.times{@match.players.build}
     end
 
     #Get /edit form 
@@ -33,19 +33,19 @@ class MatchesController < ApplicationController
 
     #Post /update action
     def update
-        @match.update(params.require(:match).permit(:match_number, :match_date))
+        @match.update(params.require(:match).permit(:match_number))
         redirect_to match_path(@match.id)    
     end 
 
     #Post /destroy action
     def destroy 
-        # byebug
         @match.destroy
         redirect_to matches_path
     end
 
     private
     def match_params
+        # params.require(:match).permit(:match_number, :match_date)
         params.require(:match).permit(:match_number, :match_date, players_attributes:[:id, :name, :player_number])
     end
 

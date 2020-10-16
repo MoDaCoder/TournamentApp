@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :players
-  has_many :matches, through: :players
+  has_many :matches
+  
   # has_many :through
   # Is plural
   # Sets up a many-to-many association using another model

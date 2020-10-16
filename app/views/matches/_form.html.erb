@@ -6,7 +6,6 @@
 <%= f.date_field :match_date %>
 <%= f.submit %>
 
-
 <%= f.fields_for :players do |players| %>
 <p>
     <h2>Players:</h2>
@@ -14,7 +13,7 @@
     <%= players.text_field :name %>
     <%= players.label :player_number %>
     <%= players.number_field :player_number%>
-</p>
+    </p>
 <%end%>
 <%= f.submit %>
 <%end%>
@@ -22,3 +21,5 @@
 <br>
 <%= link_to "Go To Matches", matches_path %>
 </br>
+
+#Collect

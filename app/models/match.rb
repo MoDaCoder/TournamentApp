@@ -1,7 +1,7 @@
 class Match < ActiveRecord::Base
     has_many :matches_players, dependent: :delete_all
     has_many :players, through: :matches_players
-    has_many :users, through: :players
+    belongs_to :user 
 
     # has_many :through
     # Is plural

@@ -3,7 +3,8 @@ class PlayersController < ApplicationController
 
     #show /show all page
     def index
-        @player = Player.all
+        @players = Player.all
+        # @player = current_user.players
     end
     
     #Post /create action

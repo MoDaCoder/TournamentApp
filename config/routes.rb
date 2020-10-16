@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users, only: [:new, :create]
-  devise_for :users, :controllers => { omniauth_callbacks: "callbacks"}
   root to: 'application#home'
-  # resources :players
+  devise_for :users, :controllers => { omniauth_callbacks: "callbacks"}
+  login route instead of users/login
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+  end
+  devise_scope :user do
+    get 'signup', to: 'devise/registrations#new'
+  end
+  resources :players
   resources :matches do 
   resources :players
   end

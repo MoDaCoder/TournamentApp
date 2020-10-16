@@ -7,9 +7,9 @@ require 'faker'
 #     # rest of your code here      
 #   end
 
-# 20.times do 
-#     User.create(email: Faker::Internet.email, password: "hello")
-#  end
+20.times do 
+    User.create(email: Faker::Internet.email, password: "hello")
+ end
 
 # user = User.create([{ name: 'Mo'}, {name: 'Takis'}])
 
