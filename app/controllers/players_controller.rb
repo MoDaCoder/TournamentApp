@@ -9,7 +9,7 @@ class PlayersController < ApplicationController
     
     #Post /create action
     def create 
-        @player = Player.new(name: params[:player][:name], player_number: params[:player][:player_number])
+        @player = Player.new(player_params)
         if @player.valid?
             @player.save
             redirect_to player_path(@player.id)
@@ -34,6 +34,8 @@ class PlayersController < ApplicationController
     
     #Post /update action
     def update
+        @player.update(params.require(:player).permit(:player_number))
+        redirect_to player_path(@player.id)
     end 
     
     #Post /destroy action
@@ -43,6 +45,11 @@ class PlayersController < ApplicationController
     end
 
     private
+    def player_params
+        params.require(:player).permit(:player_name, :player_number)
+    end
+
+
     def find_match
         @player = Player.find(params[:id])
     end

@@ -8,7 +8,7 @@ class Match < ActiveRecord::Base
     # Indicates a one-to-many association
     # A Match can have many matchplayers, players, and users in this instance
     # A matchplayer && player associated via 'matchplayer_id'
-
+    # Belongs to a user
     validates :match_number, presence:{message: "A match must have a number!"}
     validates :match_date, presence:true
     accepts_nested_attributes_for :players, reject_if: proc { |attributes| attributes[:name].blank? || attributes[:player_number].blank?}
