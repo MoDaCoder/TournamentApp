@@ -1,21 +1,26 @@
 class PlayersController < ApplicationController
-    before_action :find_match, only:[:show, :edit, :update, :destroy]
+    before_action :find_player, only:[:show, :edit, :update, :destroy]
 
     #show /show all page
     def index
         @players = Player.all
         # @player = current_user.players
     end
+
+    #Get /read action for a single object
+    def show 
+    end 
+        
     
     #Post /create action
     def create 
         @player = Player.new(player_params)
         if @player.valid?
             @player.save
-            redirect_to player_path(@player.id)
+            redirect_to player_path(@player)
         else
             @errors = @player.errors.full_messages
-            render :new    
+            render :new  
         end    
     end
     
@@ -27,10 +32,6 @@ class PlayersController < ApplicationController
     #Get /edit form 
     def edit
     end
-    
-    #Get /read action for a single object
-    def show 
-    end 
     
     #Post /update action
     def update
@@ -46,11 +47,10 @@ class PlayersController < ApplicationController
 
     private
     def player_params
-        params.require(:player).permit(:player_name, :player_number)
+        params.require(:player).permit(:name, :player_number)
     end
 
-
-    def find_match
+    def find_player
         @player = Player.find(params[:id])
     end
 end

@@ -5,21 +5,17 @@
 <%= f.label :match_date%>
 <%= f.date_field :match_date %>
 <%= f.submit %>
+<%end%>
 
-<%= f.fields_for :players do |players| %>
+<%= f.fields_for :players do |player| %>
 <p>
     <h2>Players:</h2>
-    <%= players.label :name %>
-    <%= players.text_field :name %>
-    <%= players.label :player_number %>
-    <%= players.number_field :player_number%>
-    </p>
+    <%= player.collection_select :player_id, Player.all, :id, :name, :player_number %>
+</p>
 <%end%>
-<%= f.submit %>
+<%= f.submit%>
 <%end%>
 
 <br>
 <%= link_to "Go To Matches", matches_path %>
 </br>
-
-#Collect
