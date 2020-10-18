@@ -11,7 +11,7 @@ class MatchesController < ApplicationController
 
     #Post /create action
     def create 
-        @match = Match.new(match_params)
+        @match = Match.new(match_params.merge(user_id: current_user.id))
         if @match.valid?
             @match.save
             redirect_to match_path(@match.id)
@@ -23,8 +23,8 @@ class MatchesController < ApplicationController
 
     #Get /render new form
     def new
-        @match = Match.new
-        @match.players.build
+        # byebug
+        @match = current_user.matches.new
         # 4.times{@match.players.build}
     end
 

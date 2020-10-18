@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
     
     #Post /create action
     def create 
-        @player = Player.new(player_params)
+        @player = Player.new(player_params.merge(user_id: current_user.id))
         if @player.valid?
             @player.save
             redirect_to player_path(@player)
@@ -26,7 +26,7 @@ class PlayersController < ApplicationController
     
     #Get /render new form
     def new
-        @player = Player.new
+        @player = current_user.players.new
     end
     
     #Get /edit form 
