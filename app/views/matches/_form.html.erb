@@ -5,12 +5,7 @@
 <%= f.label :match_date%>
 <%= f.date_field :match_date %>
 
-<%= f.fields_for :players do |player| %>
-<p>
-    <h2>Player:</h2>
-    <%= player.collection_select :player_id, Player.all, :id, :name, :player_number %>
-</p>
-<%end%>
+
 <%= f.submit %>
 <%end%>
 

@@ -1,0 +1,8 @@
+<h1>Match: <%= @match.match_number %></h1>
+<h3>Match: <%= @match.match_date %></h3>
+
+<h3> Players: </h3>
+<% @match.players.each do |player| %>
+<p><%= player.name</p>
+<p><%= player.player_number %></p>
+<%end%>

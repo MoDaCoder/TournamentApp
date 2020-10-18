@@ -11,6 +11,7 @@ class MatchesController < ApplicationController
 
     #Post /create action
     def create 
+        # byebug
         @match = Match.new(match_params.merge(user_id: current_user.id))
         if @match.valid?
             @match.save
