@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
-    helper_method :current_user
-
-    # def current_user
-    # @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    # def only_see_own_page
+    #     # byebug
+    #     @user = User.find(params[:id])
+    #     if current_user.id != current_user.match
+    #       redirect_to root_path, notice: "Sorry, but you are only allowed to view your own profile page."
+    #     end
     # end
 
     def authorize

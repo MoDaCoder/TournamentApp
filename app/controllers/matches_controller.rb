@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
     before_action :find_match, only:[:show, :edit, :update, :destroy]
     before_action :authorize, except: []
+    # before_action :only_see, except: []
     #show /show all page
     def index
         @matches = Match.all
@@ -53,6 +54,11 @@ class MatchesController < ApplicationController
 
     def find_match
         @match = Match.find(params[:id])
+    end
+
+    def only_see
+        @match != current_user.matches
+        redirect_to new_match_path
     end
     
 end
