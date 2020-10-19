@@ -17,7 +17,7 @@ class MatchesController < ApplicationController
         @match = Match.new(match_params.merge(user_id: current_user.id))
         if @match.valid?
             @match.save
-            redirect_to match_path(@match.id)
+            redirect_to user_match_path(@match.id)
         else
             @errors = @match.errors.full_messages
             render :new
@@ -38,13 +38,13 @@ class MatchesController < ApplicationController
     #Post /update action
     def update
         @match.update(params.require(:match).permit(:match_number))
-        redirect_to match_path(@match.id)    
+        redirect_to user_match_path(@match.id)    
     end 
 
     #Post /destroy action
     def destroy 
         @match.destroy
-        redirect_to matches_path
+        redirect_to user_matches_path
     end
 
     private
@@ -58,7 +58,7 @@ class MatchesController < ApplicationController
 
     def only_see
         @match != current_user.matches
-        redirect_to new_match_path
+        redirect_to new_user_match_path
     end
     
 end

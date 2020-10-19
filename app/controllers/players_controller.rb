@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
         @player = Player.new(player_params.merge(user_id: current_user.id))
         if @player.valid?
             @player.save
-            redirect_to player_path(@player)
+            redirect_to user_player_path(@player)
         else
             @errors = @player.errors.full_messages
             render :new  
@@ -35,14 +35,15 @@ class PlayersController < ApplicationController
     
     #Post /update action
     def update
+        # byebug
         @player.update(params.require(:player).permit(:player_number))
-        redirect_to player_path(@player.id)
+        redirect_to user_player_path(@player.id)
     end 
     
     #Post /destroy action
     def destroy 
         @player.destroy
-        redirect_to players_path
+        redirect_to user_players_path
     end
 
     private

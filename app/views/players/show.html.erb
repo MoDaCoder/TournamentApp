@@ -3,14 +3,14 @@
 
 
 <br>
-<%= link_to "Edit This Match", edit_player_path %>
+<%= link_to "Edit This Match", edit_user_player_path %>
 </br>
 <br>
-<%= link_to "Go To Players", players_path %>
+<%= link_to "Go To Players", user_players_path %>
 </br>
 <br>
 <%= link_to "Go To Welcome Page", user_session_path %>
 </br>
 <br>
-<%= button_to "Delete This Match", player_path(@player), method: :delete %>
+<%= button_to "Delete This Match", user_player_path(@player), method: :delete %>
 </br>

@@ -1,13 +1,9 @@
 <h1> Edit Match </h1>
 
 <%= render 'form', match:@match %>
-
 <br>
-<%= link_to "Go Back", match_path %>
+<%= link_to "Go Back", user_match_path %>
 </br>
 <br>
-<%= link_to "Welcome Page", user_session_path %>
-</br>
-<br>
-<%= button_to "Delete This Match", match_path(@match), method: :delete %>
+<%= button_to "Delete This Match", user_matches_path(@match), method: :delete %>
 </br>

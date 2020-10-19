@@ -2,10 +2,7 @@
 
 <%= render 'form', player:@player %>
 
+<%= link_to "Go Back", user_player_path %>
 <br>
-<%= link_to "Go Back", player_path %>
+<%= button_to "Delete This Match", user_players_path(@player), method: :delete %>
 </br>
-<br>
-<%= button_to "Delete This Match", player_path(@player), method: :delete %>
-</br>
-<%= link_to "Welcome Page", user_session_path %>
