@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
     before_action :find_player, only:[:show, :edit, :update, :destroy]
-
+    before_action :authorize, except: []
     #show /show all page
     def index
         @players = Player.all
@@ -53,5 +53,6 @@ class PlayersController < ApplicationController
     def find_player
         @player = Player.find(params[:id])
     end
+
 end
 

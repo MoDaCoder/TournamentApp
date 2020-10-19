@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
     before_action :find_match, only:[:show, :edit, :update, :destroy]
+    before_action :authorize, except: []
     #show /show all page
     def index
         @matches = Match.all
