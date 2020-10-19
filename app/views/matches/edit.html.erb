@@ -3,6 +3,11 @@
 <%= render 'form', match:@match %>
 
 <br>
+<%= link_to "Go Back", match_path %>
+</br>
+<br>
+<%= link_to "Welcome Page", user_session_path %>
+</br>
+<br>
 <%= button_to "Delete This Match", match_path(@match), method: :delete %>
 </br>
-<%= link_to "Welcome Page", user_session_path %>
