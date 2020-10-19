@@ -1,0 +1,8 @@
+<h1> Edit Player </h1>
+
+<%= render 'form', player:@player %>
+
+<br>
+<%= button_to "Delete This Match", player_path(@player), method: :delete %>
+</br>
+<%= link_to "Welcome Page", user_session_path %>
