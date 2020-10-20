@@ -1,8 +1,9 @@
 <h1> Edit Player </h1>
 
 <%= render 'form', player:@player %>
-
+<br>
 <%= link_to "Go Back", user_player_path %>
+</br>
 <br>
 <%= button_to "Delete This Match", user_players_path(@player), method: :delete %>
 </br>

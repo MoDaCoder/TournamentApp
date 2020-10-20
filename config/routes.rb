@@ -4,14 +4,20 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { omniauth_callbacks: "callbacks"}
 
-  resource :user do
-    resources :matches 
+  resources :users do
+    resources :matches do
     resources :players
   end
-  
-  resource :user do
-    resource :match do
-      resources :players
-      end
-    end
+end
+
+  # resource :user do
+  #   resource :match do
+  #     resources :players
+  #     end
+  #   end
+  # end
+
+  resources :users do 
+    resources :players
   end
+end

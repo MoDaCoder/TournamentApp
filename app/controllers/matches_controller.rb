@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
     # before_action :only_see, except: []
     #show /show all page
     def index
+        # byebug
         @matches = Match.all
     end
 
@@ -13,7 +14,7 @@ class MatchesController < ApplicationController
 
     #Post /create action
     def create 
-        # byebug
+        byebug
         @match = Match.new(match_params.merge(user_id: current_user.id))
         if @match.valid?
             @match.save
@@ -27,7 +28,8 @@ class MatchesController < ApplicationController
     #Get /render new form
     def new
         # byebug
-        @match = current_user.matches.new
+        @user = current_user
+        @match = Match.new
         # 4.times{@match.players.build}
     end
 
@@ -49,7 +51,7 @@ class MatchesController < ApplicationController
 
     private
     def match_params
-        params.require(:match).permit(:match_number, :match_date, players_attributes:[:id, :name, :player_number])
+        params.require(:match).permit(:match_number, :match_date, player_ids:[])
     end
 
     def find_match
