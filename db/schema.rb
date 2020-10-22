@@ -10,19 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_153120) do
+ActiveRecord::Schema.define(version: 2020_10_22_210640) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "match_number"
     t.date "match_date"
-    t.integer "user_id"
+    t.integer "user_id", null: false
+    t.integer "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "matches_players", id: false, force: :cascade do |t|
-    t.integer "match_id", null: false
-    t.integer "player_id", null: false
+    t.index ["player_id"], name: "index_matches_on_player_id"
+    t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -48,16 +46,6 @@ ActiveRecord::Schema.define(version: 2020_10_14_153120) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "matches", "players"
+  add_foreign_key "matches", "users"
 end
-
-#user to have manny matches
-#player many matches
-#get rid of matches players
-#match belongs to player and user and player id
-#change association and change views
-#seed user date devise
-#MATCH IS THE JOIN TABLE
-#USER HAS MANY MATCHES AND HAS MANY PLAYERS THROUGH MATCHES
-#PLAYER HAS MANY MATCHES AND HAS MANY USERS THROUGH MATCHES
-#JUST DELETE MATCHES_PLAYERS
-#FIGURE OUT DEVISE FAKER GEM *TRY*

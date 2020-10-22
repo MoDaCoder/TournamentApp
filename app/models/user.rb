@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :players
   has_many :matches
+  has_many :players, through: :matches
   
   # has_many
   # Is plural

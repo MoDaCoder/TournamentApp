@@ -2,8 +2,12 @@
 
 one:
   match_number: 1
-  match_date: 2020-10-14
+  match_date: 2020-10-22
+  user: one
+  player: one
 
 two:
   match_number: 1
-  match_date: 2020-10-14
+  match_date: 2020-10-22
+  user: two
+  player: two
