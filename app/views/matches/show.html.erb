@@ -1,15 +1,18 @@
 <h1>Match: <%= @match.match_number %></h1>
 <h3>Match: <%= @match.match_date %></h3>
 
+<%= f.collection_check_box player_ids, user.players, :id, :name, value: true %>
+
+<%= 
 <br>
-<%= link_to "Edit This Match", edit_user_match_path %>
+<%= link_to "Edit This Match", edit_user_match_path(current_user) %>
 </br>
 <br>
-<%= link_to "Go To Matches", user_matches_path %>
+<%= link_to "Go To Matches", user_matches_path(current_user) %>
 </br>
 <br>
-<%= link_to "Go To Welcome Page", user_session_path %>
+<%= link_to "Go To Welcome Page", user_session_path(current_user) %>
 </br>
 <br>
-<%= button_to "Delete This Match", user_match_path(@match), method: :delete %>
+<%= button_to "Delete This Match", user_match_path(current_user, @match), method: :delete %>
 </br>

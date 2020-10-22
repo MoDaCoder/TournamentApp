@@ -49,3 +49,15 @@ ActiveRecord::Schema.define(version: 2020_10_14_153120) do
   end
 
 end
+
+#user to have manny matches
+#player many matches
+#get rid of matches players
+#match belongs to player and user and player id
+#change association and change views
+#seed user date devise
+#MATCH IS THE JOIN TABLE
+#USER HAS MANY MATCHES AND HAS MANY PLAYERS THROUGH MATCHES
+#PLAYER HAS MANY MATCHES AND HAS MANY USERS THROUGH MATCHES
+#JUST DELETE MATCHES_PLAYERS
+#FIGURE OUT DEVISE FAKER GEM *TRY*

@@ -17,7 +17,8 @@ class PlayersController < ApplicationController
         @player = Player.new(player_params.merge(user_id: current_user.id))
         if @player.valid?
             @player.save
-            redirect_to user_player_path(@player)
+            redirect_to user_player_path(current_user, @player.id)
+            # redirect_to user_match_path(current_user, @match)
         else
             @errors = @player.errors.full_messages
             render :new  

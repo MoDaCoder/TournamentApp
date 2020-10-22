@@ -14,11 +14,11 @@ class MatchesController < ApplicationController
 
     #Post /create action
     def create 
-        byebug
+        # byebug
         @match = Match.new(match_params.merge(user_id: current_user.id))
         if @match.valid?
             @match.save
-            redirect_to user_match_path(@match.id)
+            redirect_to user_match_path(current_user, @match.id)
         else
             @errors = @match.errors.full_messages
             render :new
@@ -51,7 +51,7 @@ class MatchesController < ApplicationController
 
     private
     def match_params
-        params.require(:match).permit(:match_number, :match_date, player_ids:[])
+        params.require(:match).permit(:match_number, :match_date, player_ids:[], player_attributes:[:name, :player_number])
     end
 
     def find_match

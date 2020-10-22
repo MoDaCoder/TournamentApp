@@ -5,6 +5,10 @@
 <%= f.label :match_date%>
 <%= f.date_field :match_date %>
 
+
+<%= f.collection_check_box player_ids, user.players, :id, :name, value: true %>
+
+
 <%= f.submit "Save" %>
 <%end%>
 
