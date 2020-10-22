@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   # get '/users/id:/players/id:', to: 'players#show'
   # #Custom controller to show players
 
-  resources :users do
-    resources :matches do
-    resources :players
-  end
-end
+#   resources :users do
+#     resources :players do
+#     resources :matches
+#   end
+# end
 
 
   # resource :user do
