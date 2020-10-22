@@ -28,6 +28,7 @@ class PlayersController < ApplicationController
     #Get /render new form
     def new
         @player = current_user.players.new
+        
     end
     
     #Get /edit form 
@@ -49,7 +50,7 @@ class PlayersController < ApplicationController
 
     private
     def player_params
-        params.require(:player).permit(:name, :player_number)
+        params.require(:player).permit(:name, :player_number, match_attributes:[:match_number, :match_date])
     end
 
     def find_player
