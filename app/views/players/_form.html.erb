@@ -4,9 +4,8 @@
     <%= f.text_field :name %>
     <%= f.label :player_number %>
     <%= f.number_field :player_number%>
-    <%= f.fields_for :match, @player.match do |p| %>
-<%= p.text_field :match_number %>
-  <% end %>
+    <%= f.collection_select(:player_id, current_user.players, :id, :name) %>
+
     <%= f.submit %>
 <%end%>
 

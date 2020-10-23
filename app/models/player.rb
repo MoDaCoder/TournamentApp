@@ -9,6 +9,6 @@ class Player < ApplicationRecord
     # Belongs to a user
     validates :name, presence:{message: "A player must have a name!"}
     validates :player_number, presence:true
-
-    accepts_nested_attributes_for :matches, reject_if: proc { |attributes| attributes[:match_date].blank? || attributes[:match_number].blank?}
+    accepts_nested_attributes_for :users
+    # accepts_nested_attributes_for :matches, reject_if: proc { |attributes| attributes[:match_date].blank? || attributes[:match_number].blank?}
 end
