@@ -1,7 +1,7 @@
 <h1>All Players</h1>
 
 <ul>
-    <% @players.each do |player| %>
+<% @players.each do |player| %>
     <li> <%= link_to player.name, user_player_path(current_user, player) %> </li>
 <%end%>
 </ul>

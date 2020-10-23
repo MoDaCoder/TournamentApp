@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 #     resources :matches
 #   end
 # end
-
+  resources :players
 
   # resource :user do
   #   resource :match do

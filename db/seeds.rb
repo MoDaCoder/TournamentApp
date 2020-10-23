@@ -9,6 +9,7 @@ require 'faker'
 #         name: Faker::Name.name, 
 #         player_number: Faker::Number.between(from: 1, to: 50)}])
 #  end
+
 # 5.times do 
 #     Match.create( 
 #     match_number: Faker::Number.between(from: 1, to: 50),
