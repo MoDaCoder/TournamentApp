@@ -39,7 +39,7 @@ class MatchesController < ApplicationController
 
     #Post /update action
     def update
-        @match.update(params.require(:match).permit(:match_number))
+        @match.update(params.require(:match).permit(:valid_match))
         redirect_to user_match_path(@match.id)    
     end 
 
@@ -51,7 +51,7 @@ class MatchesController < ApplicationController
 
     private
     def match_params
-        params.require(:match).permit(:match_number, :match_date, player_attributes:[:name, :player_number])
+        params.require(:match).permit(:valid_match)
     end
 
     def find_match

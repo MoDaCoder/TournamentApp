@@ -7,8 +7,8 @@
     <%= f.label :starter %>
     <%= f.check_box :starter %>
 <%= f.fields_for :match do |ff| %>
-    <%= ff.label :match_date %>
-    <%= ff.date_field :match_date %>
+    <%= ff.label :valid_match %>
+    <%= ff.check_box :valid_match %>
 
 <%end%>
 <%= f.submit %>

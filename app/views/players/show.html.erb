@@ -1,6 +1,12 @@
 <h1>Player: <%= @player.name %></h1>
 <h3>Player: <%= @player.player_number %></h3>
-<h3>Sarter_?: <%= @player.starter ? "Yes" : "No" %></h3>
+<h3>Sarter?: <%= @player.starter ? "Yes" : "No" %></h3>
+
+<h3>Match:</h3>
+<%= @player.matches.each do |match| %>
+<p><%= match.valid_match ? "Yes" : "No" %></p>
+<%end%>
+
 <div>
 <br>
 <%= link_to "Edit This Match", edit_user_player_path %>

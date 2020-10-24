@@ -1,10 +1,9 @@
 require 'faker'
 
-# 5.times do 
-#     Match.create( 
-#     match_number: Faker::Number.between(from: 1, to: 50),
-#     match_date: Faker::Date.between(from: 2.days.ago, to: Date.today))
-# end
+5.times do 
+    Match.create( 
+    valid_match: Faker::Boolean.boolean )
+end
 
 # 20.times do 
 #     User.create(email: Faker::Internet.email, password: "helloworld")

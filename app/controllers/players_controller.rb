@@ -3,7 +3,7 @@ class PlayersController < ApplicationController
     # before_action :authorize, except: []
     #show /show all page
     def index
-        @players = Player.all
+        @players = Player.in_order
         # @player = current_user.players
     end
 
@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
     
     #Post /create action
     def create 
-        byebug
+        # byebug
         @player = Player.create(player_params)
         if @player.valid?
             @player.save
@@ -29,6 +29,8 @@ class PlayersController < ApplicationController
     #Get /render new form
     def new
         @player = Player.new
+        @player.matches.build
+        @player.save
     end
     
     #Get /edit form 
@@ -50,7 +52,7 @@ class PlayersController < ApplicationController
 
     private
     def player_params
-        params.require(:player).permit(:name, :player_number, :starter, matches_attributes:[:id, :match_date])
+        params.require(:player).permit(:name, :player_number, :starter, matches_attributes:[:valid_match])
     end
 
     def find_player
