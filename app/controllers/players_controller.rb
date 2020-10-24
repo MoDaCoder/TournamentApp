@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
     before_action :find_player, only:[:show, :edit, :update, :destroy]
-    before_action :authorize, except: []
+    # before_action :authorize, except: []
     #show /show all page
     def index
         @players = Player.all
@@ -14,7 +14,8 @@ class PlayersController < ApplicationController
     
     #Post /create action
     def create 
-        @player = Player.new(player_params)
+        byebug
+        @player = Player.create(player_params)
         if @player.valid?
             @player.save
             redirect_to user_player_path(current_user, @player.id)
@@ -28,7 +29,6 @@ class PlayersController < ApplicationController
     #Get /render new form
     def new
         @player = Player.new
-        
     end
     
     #Get /edit form 
@@ -50,7 +50,7 @@ class PlayersController < ApplicationController
 
     private
     def player_params
-        params.require(:player).permit(:name, :player_number)
+        params.require(:player).permit(:name, :player_number, :starter, matches_attributes:[:id, :match_date])
     end
 
     def find_player

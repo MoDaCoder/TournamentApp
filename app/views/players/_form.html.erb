@@ -4,9 +4,11 @@
     <%= f.text_field :name %>
     <%= f.label :player_number %>
     <%= f.number_field :player_number%>
-<%= f.fields_for :user do |ff| %>
-    <%= ff.label :user_name %>
-    <%= ff.text_field :name %>
+    <%= f.label :starter %>
+    <%= f.check_box :starter %>
+<%= f.fields_for :match do |ff| %>
+    <%= ff.label :match_date %>
+    <%= ff.date_field :match_date %>
 
 <%end%>
 <%= f.submit %>
