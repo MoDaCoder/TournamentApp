@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
 <h1>Welcome <%= @user %></h1>
 <h3>What would you like to look at?</h3>
+
 <ul>
     <li><%= link_to "Players", user_players_path(current_user) %></li>
 </ul>

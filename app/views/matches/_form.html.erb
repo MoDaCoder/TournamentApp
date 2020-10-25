@@ -1,14 +1,13 @@
 <h1>Match:</h1>
-<%= form_for([@user, @match]) do |f| %>
-<%= f.label :match_number %>
-<%= f.number_field :match_number %>
-<%= f.label :match_date%>
-<%= f.date_field :match_date %>
+<%= form_for(@match) do |f| %>
+<%= f.label :valid_match %>
+<%= f.check_box :valid_match %>
 
+<%= f.fields_for :player do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-<%= f.collection_check_box player_ids, user.players, :id, :name, value: true %>
-
-
+<%end%>
 <%= f.submit "Save" %>
 <%end%>
 

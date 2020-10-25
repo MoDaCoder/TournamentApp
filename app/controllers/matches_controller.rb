@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
     before_action :find_match, only:[:show, :edit, :update, :destroy]
-    before_action :authorize, except: []
+    # before_action :authorize, except: []
     # before_action :only_see, except: []
     #show /show all page
     def index
@@ -14,8 +14,8 @@ class MatchesController < ApplicationController
 
     #Post /create action
     def create 
-        # byebug
-        @match = Match.new(match_params.merge(user_id: current_user.id))
+        byebug
+        @match = Match.new(match_params)
         if @match.valid?
             @match.save
             redirect_to user_match_path(current_user, @match.id)
@@ -51,7 +51,7 @@ class MatchesController < ApplicationController
 
     private
     def match_params
-        params.require(:match).permit(:valid_match)
+        params.require(:match).permit(:valid_match, player_attributes:(:name))
     end
 
     def find_match

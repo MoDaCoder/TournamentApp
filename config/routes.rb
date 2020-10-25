@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: "callbacks"}
 
   post '/users/id:/players', to: 'players#create'
-
+  
+  # resources :matches
   resources :players
 
   resources :users do 
-    resources :players
+    resources :players do 
+      resources :matches
+    end
   end
 end
