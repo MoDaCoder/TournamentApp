@@ -1,4 +1,4 @@
-<%= form_for (@player) do |f| %>
+<%= form_for([current_user, @player]) do |f| %>
     <h2>Players:</h2>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -6,10 +6,10 @@
     <%= f.number_field :player_number%>
     <%= f.label :starter %>
     <%= f.check_box :starter %>
-    <%= f.fields_for :match do |ff| %>
-    <%= ff.label :valid_match %>
-    <%= ff.check_box :valid_match %>
-<%end%>
+    <%= f.fields_for :matches do |ff| %>
+      <%= ff.label :valid_match %>
+      <%= ff.check_box :valid_match %>
+    <%end%>
 <%= f.submit %>
 <%end%>
 
