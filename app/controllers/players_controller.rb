@@ -14,10 +14,13 @@ class PlayersController < ApplicationController
     
     #Post /create action
     def create 
-        # byebug
-        @player = Player.create(player_params)
-        if @player.valid?
-            @player.save
+        @player = Player.new(player_params)
+        # Assign all matches to the current user
+        @player.matches.each do |match|
+          match.user = current_user
+        end
+
+        if @player.save
             redirect_to user_player_path(current_user, @player.id)
             # redirect_to user_match_path(current_user, @match)
         else
@@ -40,7 +43,7 @@ class PlayersController < ApplicationController
     #Post /update action
     def update
         # byebug
-        @player.update(params.require(:player).permit(:player_number))
+        @player.update(player_params)
         redirect_to user_player_path(@player.id)
     end 
     
@@ -52,7 +55,7 @@ class PlayersController < ApplicationController
 
     private
     def player_params
-        params.require(:player).permit(:name, :player_number, :starter, matches_attributes:[:valid_match])
+        params.require(:player).permit(:name, :player_number, :starter, matches_attributes:[:id, :valid_match])
     end
 
     def find_player

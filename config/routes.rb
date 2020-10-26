@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   post '/users/id:/players', to: 'players#create'
   
   # resources :matches
-  resources :players
-
   resources :users do 
     resources :players do 
       resources :matches
