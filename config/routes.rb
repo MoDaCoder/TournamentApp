@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   
   # resources :matches
   resources :users do 
-    resources :players do 
+    resources :players
       resources :matches
     end
   end
-end
+

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_10_22_210640) do
 
   create_table "matches", force: :cascade do |t|
-    t.boolean "valid_match", default: false
+    t.boolean "valid_match"
     t.integer "user_id", null: false
     t.integer "player_id", null: false
     t.datetime "created_at", precision: 6, null: false

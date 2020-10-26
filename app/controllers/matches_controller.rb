@@ -14,8 +14,10 @@ class MatchesController < ApplicationController
 
     #Post /create action
     def create 
-        byebug
-        @match = Match.new(match_params)
+        # byebug
+        @player = Player.find(params[:player_id])
+        @match = @player.match.create(match_params)
+        @match.user_id = current_user.id
         if @match.valid?
             @match.save
             redirect_to user_match_path(current_user, @match.id)
@@ -51,7 +53,7 @@ class MatchesController < ApplicationController
 
     private
     def match_params
-        params.require(:match).permit(:valid_match, player_attributes:(:name))
+        params.require(:match).permit(:id, :valid_match, :user_id, :player_id)
     end
 
     def find_match

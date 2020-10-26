@@ -42,7 +42,6 @@ class PlayersController < ApplicationController
     
     #Post /update action
     def update
-        # byebug
         @player.update(player_params)
         redirect_to user_player_path(@player.id)
     end 

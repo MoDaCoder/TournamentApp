@@ -1,20 +1,22 @@
 require 'faker'
 
-5.times do 
+20.times do 
     Match.create( 
-    valid_match: Faker::Boolean.boolean )
+    name: Faker::Boolean.boolean,
+    user_id: User.all.sample.id,
+    player_id: Player.all.sample.id )
 end
 
-# 20.times do 
-#     User.create(email: Faker::Internet.email, password: "helloworld")
-#  end
+20.times do 
+    User.create(email: Faker::Internet.email, password: "helloworld")
+ end
 
 
-#  20.times do 
-#     Player.create([{
-#         name: Faker::Name.name, 
-#         player_number: Faker::Number.between(from: 1, to: 50)}])
-#  end
+ 20.times do 
+    Player.create(
+        name: Faker::Name.name, 
+        player_number: Faker::Number.between(from: 1, to: 50))
+ end
 
 #     Player.create(
 #     name: Faker::Name.name, 
