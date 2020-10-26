@@ -6,10 +6,9 @@
     <%= f.number_field :player_number%>
     <%= f.label :starter %>
     <%= f.check_box :starter %>
-<%= f.fields_for :match do |ff| %>
+    <%= f.fields_for :match do |ff| %>
     <%= ff.label :valid_match %>
     <%= ff.check_box :valid_match %>
-
 <%end%>
 <%= f.submit %>
 <%end%>

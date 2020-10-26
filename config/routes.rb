@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :players
 
   resources :users do 
-    resources :players do 
+    resources :players
       resources :matches
     end
   end
-end
+

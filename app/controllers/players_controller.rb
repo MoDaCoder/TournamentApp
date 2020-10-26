@@ -40,7 +40,7 @@ class PlayersController < ApplicationController
     #Post /update action
     def update
         # byebug
-        @player.update(params.require(:player).permit(:player_number))
+        @player.update(params.require(:player).permit(:player_number, :valid_match))
         redirect_to user_player_path(@player.id)
     end 
     
@@ -52,7 +52,7 @@ class PlayersController < ApplicationController
 
     private
     def player_params
-        params.require(:player).permit(:name, :player_number, :starter, matches_attributes:[:valid_match])
+        params.require(:player).permit(:name, :player_number, :starter, matches_attributes:[:valid_match, :user_id, :player_id])
     end
 
     def find_player
