@@ -3,7 +3,7 @@
 <h3>Starter?: <%= @player.starter ? "Yes" : "No" %></h3>
 
 <h3>Match:</h3>
-<%= @player.matches.each do |match| %>
+<% @player.matches.each do |match| %>
 <p><%= match.valid_match ? "Yes" : "No" %></p>
 <%end%>
 
