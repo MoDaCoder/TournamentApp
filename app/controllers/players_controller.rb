@@ -7,6 +7,10 @@ class PlayersController < ApplicationController
         # @player = current_user.players
     end
 
+    def in_order
+        @players = Player.in_order 
+    end
+
     #Get /read action for a single object
     def show 
     end 

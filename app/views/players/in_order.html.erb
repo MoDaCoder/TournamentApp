@@ -1,0 +1,11 @@
+<h1>List of Player Names for Users with Hippopotomonstrosesquippedaliophobia</h1>
+<h3>(Fear of Long Words)</h3>
+
+<% @players.each do |player|%>
+    <ul>
+    <li><%= player.name %></li>
+    </ul>
+    <%=  %>
+<%end%>
+
+<%= button_to "All Players", user_players_path(current_user), {method: 'get'} %>

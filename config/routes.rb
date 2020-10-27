@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :players
       resources :matches
     end
+    get '/players/in_order', to: 'players#in_order', as: 'in_order'
   end
 
