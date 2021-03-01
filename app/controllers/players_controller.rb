@@ -3,7 +3,7 @@ class PlayersController < ApplicationController
     # before_action :authorize, except: []
     #show /show all page
     def index
-        @players = Player.in_order
+        @players = Player.all
         # @player = current_user.players
     end
 

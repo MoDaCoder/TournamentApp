@@ -2,16 +2,16 @@
 
 <ul>
 <% @players.each do |player| %>
-    <li> <%= link_to player.name, user_player_path(current_user, player) %> </li>
+    <li> <%= link_to player.name, user_player_path(current_user, player) %> <%= "#{player.player_number}" %></li>
 <%end%>
 </ul>
 
 <br>
-<%= link_to "Create New player", new_user_player_path %>
+<%= button_to "Create New player", new_user_player_path, {method: 'get'} %>
 </br>
 <br>
-<%= link_to "Welcome Page", user_session_path %>
+<%= button_to "Short Names", in_order_path, {method: 'get'} %>
 </br>
 <br>
-<%= link_to "Short Names", in_order_path %>
+<%= button_to "Welcome Page", user_session_path, {method: 'get'} %>
 </br>

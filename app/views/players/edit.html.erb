@@ -1,9 +1,16 @@
 <h1> Edit Player </h1>
 
 <%= render 'form', player:@player %>
+
 <br>
-<%= link_to "Go Back", user_player_path %>
+<%= button_to "Go To Players", user_players_path, {method: 'get'} %>
+</br>
+<br>
+<%= button_to "Go Back To Player", user_player_path, {method: 'get'} %>
 </br>
 <br>
 <%= button_to "Delete This Match", user_player_path(@player), method: :delete %>
+</br>
+<br>
+<%= button_to "Welcome Page", user_session_path, {method: 'get'} %>
 </br>

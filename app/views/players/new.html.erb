@@ -5,3 +5,10 @@
     <%end%>
 <%end%>
 <%= render 'form', player:@player %>
+
+<br>
+<%= button_to "Go To Players", user_players_path, {method: 'get'} %>
+</br>
+<br>
+<%= button_to "Welcome Page", user_session_path, {method: 'get'} %>
+</br>
